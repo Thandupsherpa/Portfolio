@@ -1,0 +1,1351 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+
+  <!-- SEO Primary Meta Tags -->
+  <title>Thandup Sherpa — Full Stack Developer &amp; UI/UX Designer</title>
+  <meta name="title" content="Thandup Sherpa — Full Stack Developer &amp; UI/UX Designer">
+  <meta name="description"
+    content="Portfolio of Thandup Sherpa, a Full Stack Developer Intern and UI/UX Designer focused on building modern digital experiences with clean engineering and thoughtful design.">
+  <meta name="author" content="Thandup Sherpa">
+  <meta name="robots" content="index, follow">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://thandupsherpa.github.io/Portfolio/">
+  <meta property="og:title" content="Thandup Sherpa — Full Stack Developer &amp; UI/UX Designer">
+  <meta property="og:description"
+    content="Building modern digital experiences where clean engineering meets thoughtful design. Currently Full Stack Developer Intern at EMEYC Pvt Limited.">
+  <meta property="og:image" content="./assets/icons/favicon.svg">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:title" content="Thandup Sherpa — Full Stack Developer &amp; UI/UX Designer">
+  <meta property="twitter:description"
+    content="Building modern digital experiences where clean engineering meets thoughtful design. Currently Full Stack Developer Intern at EMEYC Pvt Limited.">
+  <meta property="twitter:image" content="./assets/icons/favicon.svg">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="./assets/icons/favicon.svg">
+
+  <!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+
+  <!-- Theme Pre-Hydration Script to Prevent FOUC -->
+  <script>
+    (function () {
+      try {
+        const savedTheme = localStorage.getItem('thandup_portfolio_theme');
+        if (savedTheme) {
+          document.documentElement.setAttribute('data-theme', savedTheme);
+        } else {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        }
+      } catch (e) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      }
+    })();
+  </script>
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="./style.css">
+
+  <!-- Structured Schema Data (JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Thandup Sherpa",
+    "jobTitle": "Full Stack Developer Intern",
+    "worksFor": {
+      "@type": "Organization",
+      "name": "EMEYC Pvt Limited"
+    },
+    "alumniOf": {
+      "@type": "CollegeOrUniversity",
+      "name": "Medhavi Skills University"
+    },
+    "knowsAbout": ["Full Stack Development", "Frontend Development", "Backend Development", "UI/UX Design", "JavaScript", "React", "Node.js", "Python", "Go"],
+    "address": {
+      "@type": "PostalAddress",
+      "addressRegion": "Sikkim",
+      "addressCountry": "India"
+    }
+  }
+  </script>
+</head>
+
+<body>
+  <!-- Page Entrance Loader (Plays smoothly on initial page load) -->
+  <div id="page-preloader" class="page-preloader" aria-hidden="true">
+    <div class="preloader-content">
+      <div class="preloader-icon">
+        <span class="preloader-bracket">&lt;</span>
+        <span class="preloader-dot"></span>
+        <span class="preloader-bracket">/&gt;</span>
+      </div>
+      <div class="preloader-text">
+        <span class="preloader-name">THANDUP SHERPA</span>
+        <span class="preloader-status">INITIALIZING SYSTEM...</span>
+      </div>
+      <div class="preloader-bar-wrap">
+        <div class="preloader-bar"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Reading Progress Bar -->
+  <div id="scroll-progress" class="scroll-progress-bar" aria-hidden="true"></div>
+
+  <!-- Custom Cursor Elements (Desktop only) -->
+  <div id="custom-cursor-dot" class="cursor-dot" aria-hidden="true"></div>
+  <div id="custom-cursor-ring" class="cursor-ring" aria-hidden="true"></div>
+
+  <!-- Background Ambient Atmosphere -->
+  <div class="ambient-layer" aria-hidden="true">
+    <div class="ambient-glow glow-top-left"></div>
+    <div class="ambient-glow glow-bottom-right"></div>
+    <div class="grid-mesh-overlay"></div>
+  </div>
+
+  <!-- Navigation -->
+  <header class="site-header" id="site-header">
+    <div class="container header-container">
+      <a href="#hero" class="brand-logo" aria-label="Thandup Sherpa Portfolio Home">
+        <span class="logo-text">THANDUP</span><span class="logo-accent">.</span>
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <nav class="desktop-nav" aria-label="Primary Navigation">
+        <ul class="nav-list">
+          <li><a href="#hero" class="nav-link active">Home</a></li>
+          <li><a href="#about" class="nav-link">About</a></li>
+          <li><a href="#experience" class="nav-link">Experience</a></li>
+          <li><a href="#skills" class="nav-link">Skills</a></li>
+          <li><a href="#education" class="nav-link">Education</a></li>
+          <li><a href="#achievements" class="nav-link">Achievements</a></li>
+          <li><a href="#projects" class="nav-link">Work</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <!-- Header Actions -->
+      <div class="header-actions">
+        <!-- Theme Toggle Button -->
+        <button type="button" id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle dark and light theme"
+          title="Toggle theme">
+          <svg class="theme-icon sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <svg class="theme-icon moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+
+        <!-- CTA Button -->
+        <a href="#contact" class="btn btn-nav-cta">
+          <span>Let's Talk</span>
+          <svg class="icon-arrow-diagonal" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"
+            aria-hidden="true">
+            <path d="M5 15L15 5M15 5H7M15 5V13" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </a>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button type="button" id="mobile-menu-btn" class="mobile-menu-toggle" aria-label="Open mobile navigation"
+          aria-expanded="false" aria-controls="mobile-nav-drawer">
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Menu -->
+  <div id="mobile-nav-drawer" class="mobile-drawer" aria-hidden="true">
+    <div class="mobile-drawer-backdrop" id="mobile-drawer-backdrop"></div>
+    <div class="mobile-drawer-content">
+      <div class="mobile-drawer-header">
+        <span class="brand-logo"><span class="logo-text">THANDUP</span><span class="logo-accent">.</span></span>
+        <button type="button" id="mobile-drawer-close" class="drawer-close-btn" aria-label="Close navigation menu">
+          <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none"
+            stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+
+      <nav class="mobile-nav" aria-label="Mobile Navigation">
+        <ul class="mobile-nav-list">
+          <li><a href="#hero" class="mobile-nav-link"><span>01</span> Home</a></li>
+          <li><a href="#about" class="mobile-nav-link"><span>02</span> About</a></li>
+          <li><a href="#experience" class="mobile-nav-link"><span>03</span> Experience</a></li>
+          <li><a href="#skills" class="mobile-nav-link"><span>04</span> Skills</a></li>
+          <li><a href="#education" class="mobile-nav-link"><span>05</span> Education</a></li>
+          <li><a href="#achievements" class="mobile-nav-link"><span>06</span> Achievements</a></li>
+          <li><a href="#projects" class="mobile-nav-link"><span>07</span> Selected Work</a></li>
+          <li><a href="#contact" class="mobile-nav-link"><span>08</span> Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="mobile-drawer-footer">
+        <a href="#contact" class="btn btn-primary btn-block mobile-cta-link">Let's Connect</a>
+        <p class="mobile-location-tag">Based in Sikkim, India</p>
+      </div>
+    </div>
+  </div>
+
+  <main id="main-content">
+    <!-- HERO SECTION -->
+    <section id="hero" class="hero-section" aria-label="Hero Introduction">
+      <div class="container hero-container">
+        <!-- Hero Left / Content -->
+        <div class="hero-content reveal-on-scroll">
+          <!-- Status Indicator Pill -->
+          <div class="status-pill" role="status" aria-live="polite">
+            <span class="status-dot"></span>
+            <span class="status-text">AVAILABLE FOR OPPORTUNITIES</span>
+          </div>
+
+          <!-- Main Headline -->
+          <h1 class="hero-title">
+            Full Stack Developer <br>
+            <span class="title-gradient">&amp; UI/UX Designer</span>
+          </h1>
+
+          <!-- Supporting Text -->
+          <p class="hero-subtitle">
+            Building modern digital experiences where clean engineering meets thoughtful design.
+          </p>
+
+          <!-- Current Role Banner -->
+          <div class="current-role-badge">
+            <div class="badge-icon-wrap">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+              </svg>
+            </div>
+            <span>Currently working as a <strong>Full Stack Developer Intern</strong> at <strong>EMEYC Pvt
+                Limited</strong>.</span>
+          </div>
+
+          <!-- Hero CTAs -->
+          <div class="hero-cta-group">
+            <a href="#experience" class="btn btn-primary">
+              <span>View My Journey</span>
+              <svg viewBox="0 0 20 20" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 10H16M16 10L11 5M16 10L11 15" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </a>
+            <a href="#contact" class="btn btn-secondary">
+              <span>Let's Connect</span>
+            </a>
+          </div>
+
+          <!-- Scroll Hint -->
+          <a href="#about" class="scroll-hint-link" aria-label="Scroll down to explore about section">
+            <span class="scroll-hint-text">Scroll to explore</span>
+            <span class="scroll-hint-arrow" aria-hidden="true">↓</span>
+          </a>
+        </div>
+
+        <!-- Hero Right / Developer Visual Terminal -->
+        <div class="hero-visual reveal-on-scroll">
+          <div class="terminal-window" role="region" aria-label="Developer Profile Terminal">
+            <!-- Terminal Titlebar -->
+            <div class="terminal-bar">
+              <div class="terminal-controls" aria-hidden="true">
+                <span class="window-dot dot-close"></span>
+                <span class="window-dot dot-minimize"></span>
+                <span class="window-dot dot-maximize"></span>
+              </div>
+              <div class="terminal-title">
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round" class="file-code-icon">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                  <polyline points="14 2 14 8 20 8"></polyline>
+                  <line x1="16" y1="13" x2="8" y2="13"></line>
+                  <line x1="16" y1="17" x2="8" y2="17"></line>
+                  <polyline points="10 9 9 9 8 9"></polyline>
+                </svg>
+                <span>developer.config.js</span>
+              </div>
+              <div class="terminal-status">
+                <span class="pulse-indicator"></span>
+                <span class="status-node">node v20.x</span>
+              </div>
+            </div>
+
+            <!-- Terminal Code Body -->
+            <div class="terminal-body">
+              <pre
+                class="code-pre"><code><span class="code-comment">// Engineered with precision &amp; modern standards</span>
+<span class="token-keyword">const</span> <span class="token-variable">developer</span> = {
+  <span class="token-property">name</span>: <span class="token-string">"Thandup Sherpa"</span>,
+  <span class="token-property">role</span>: <span class="token-string">"Full Stack Developer"</span>,
+  <span class="token-property">company</span>: <span class="token-string">"EMEYC Pvt Limited"</span>,
+  <span class="token-property">focus</span>: [<span class="token-string">"Web"</span>, <span class="token-string">"Backend"</span>, <span class="token-string">"UI/UX"</span>],
+  <span class="token-property">stack</span>: {
+    <span class="token-property">core</span>: [<span class="token-string">"JavaScript"</span>, <span class="token-string">"React"</span>, <span class="token-string">"Node.js"</span>],
+    <span class="token-property">backend</span>: [<span class="token-string">"Python/Django"</span>, <span class="token-string">"Go/Gin"</span>],
+    <span class="token-property">data</span>: [<span class="token-string">"MongoDB"</span>, <span class="token-string">"MySQL"</span>]
+  },
+  <span class="token-property">mindset</span>: <span class="token-string">"Build. Learn. Improve."</span>,
+  <span class="token-property">available</span>: <span class="token-boolean">true</span>
+};
+
+<span class="token-keyword">export default</span> <span class="token-variable">developer</span>;<span class="terminal-cursor" aria-hidden="true">_</span></code></pre>
+            </div>
+
+            <!-- Terminal Footer Status Bar -->
+            <div class="terminal-footer">
+              <div class="terminal-footer-item">
+                <span class="branch-icon">⌥</span>
+                <span>main*</span>
+              </div>
+              <div class="terminal-footer-item">
+                <span class="check-icon">✓</span>
+                <span>0 errors, 0 warnings</span>
+              </div>
+              <div class="terminal-footer-item code-encoding">UTF-8</div>
+            </div>
+          </div>
+
+          <!-- Floating Interactive Tech Badges -->
+          <div class="floating-chip chip-1" aria-hidden="true">
+            <span class="chip-glow"></span>
+            <span class="chip-code">&lt;FullStack /&gt;</span>
+          </div>
+          <div class="floating-chip chip-2" aria-hidden="true">
+            <span class="chip-icon">⚡</span>
+            <span>APIs &amp; Systems</span>
+          </div>
+          <div class="floating-chip chip-3" aria-hidden="true">
+            <span class="chip-icon">✦</span>
+            <span>Design Systems</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section id="about" class="section about-section" aria-label="About Thandup Sherpa">
+      <div class="container">
+        <div class="section-header reveal-on-scroll">
+          <span class="section-kicker">// 01. ABOUT ME</span>
+          <h2 class="section-title">A developer who thinks beyond the code.</h2>
+        </div>
+
+        <div class="about-grid">
+          <!-- Text Content -->
+          <div class="about-text-column reveal-on-scroll">
+            <p class="about-lead">
+              I am a technology-focused <strong>Full Stack Developer Intern</strong> with an active passion for both
+              backend architecture and visual design.
+            </p>
+            <p class="about-body">
+              My interest lies in understanding how complete systems work from the ground up — from database schemas and
+              efficient REST APIs to clean, responsive interfaces. I enjoy building functional web applications, quickly
+              adopting new technologies, and crafting user experiences that feel solid, intuitive, and visually
+              polished.
+            </p>
+            <p class="about-body">
+              At EMEYC Pvt Limited, I collaborate on real-world web applications while continuously developing my craft
+              across modern frontend, server-side runtimes, and engineering fundamentals.
+            </p>
+
+            <div class="about-signature-block">
+              <div class="location-pill">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                  <circle cx="12" cy="10" r="3"></circle>
+                </svg>
+                <span>Based in Sikkim, India</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Stats Grid -->
+          <div class="about-stats-column reveal-on-scroll">
+            <div class="stats-grid">
+              <div class="stat-card">
+                <div class="stat-number">01+</div>
+                <div class="stat-label">Current Professional Experience</div>
+                <p class="stat-note">Full Stack Developer Intern at EMEYC Pvt Limited</p>
+              </div>
+
+              <div class="stat-card">
+                <div class="stat-number">BCA</div>
+                <div class="stat-label">Academic Background</div>
+                <p class="stat-note">Medhavi Skills University</p>
+              </div>
+
+              <div class="stat-card">
+                <div class="stat-number">Full Stack</div>
+                <div class="stat-label">Development Focus</div>
+                <p class="stat-note">Frontend, Backend, APIs &amp; Databases</p>
+              </div>
+
+              <div class="stat-card">
+                <div class="stat-number">UI/UX</div>
+                <div class="stat-label">Design Focus</div>
+                <p class="stat-note">Modern aesthetics &amp; intuitive usability</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE SECTION -->
+    <section id="experience" class="section experience-section" aria-label="Professional Experience">
+      <div class="container">
+        <div class="section-header reveal-on-scroll">
+          <span class="section-kicker">// 02. EXPERIENCE</span>
+          <h2 class="section-title">Practical Engineering Journey</h2>
+          <p class="section-desc">Hands-on industry experience building scalable web solutions and interactive
+            interfaces.</p>
+        </div>
+
+        <div class="experience-timeline">
+          <!-- Experience Card 1 -->
+          <article class="experience-card reveal-on-scroll">
+            <div class="exp-card-header">
+              <div class="exp-role-group">
+                <h3 class="exp-role">Full Stack Developer Intern</h3>
+                <div class="exp-company-meta">
+                  <span class="exp-company">EMEYC Pvt Limited</span>
+                  <span class="meta-separator">•</span>
+                  <span class="exp-location">Professional Internship</span>
+                </div>
+              </div>
+              <div class="exp-period-badge">
+                <span class="pulse-dot"></span>
+                <span>Current</span>
+              </div>
+            </div>
+
+            <div class="exp-card-body">
+              <p class="exp-description">
+                Working on full-stack web development while gaining practical experience in frontend development,
+                backend development, databases, APIs, and UI/UX implementation.
+              </p>
+            </div>
+
+            <div class="exp-tech-section">
+              <span class="tech-stack-title">Technologies in Use:</span>
+              <div class="tech-tag-group">
+                <span class="tech-tag">HTML</span>
+                <span class="tech-tag">CSS</span>
+                <span class="tech-tag">JavaScript</span>
+                <span class="tech-tag">React</span>
+                <span class="tech-tag">Node.js</span>
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">Django</span>
+                <span class="tech-tag">Go</span>
+                <span class="tech-tag">Gin</span>
+                <span class="tech-tag">MongoDB</span>
+                <span class="tech-tag">MySQL</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS / TECH STACK SECTION -->
+    <section id="skills" class="section skills-section" aria-label="Technical Skills and Technologies">
+      <div class="container">
+        <div class="section-header reveal-on-scroll">
+          <span class="section-kicker">// 03. TECH STACK</span>
+          <h2 class="section-title">Technologies &amp; Toolkit</h2>
+          <p class="section-desc">A structured overview of the programming languages, libraries, databases, and tools I
+            work with.</p>
+        </div>
+
+        <div class="skills-categories-grid">
+          <!-- Category: Frontend -->
+          <div class="skill-category-card reveal-on-scroll">
+            <div class="category-header">
+              <div class="category-icon-wrap icon-cyan">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                  <polyline points="2 17 12 22 22 17"></polyline>
+                  <polyline points="2 12 12 17 22 12"></polyline>
+                </svg>
+              </div>
+              <h3 class="category-title">Frontend</h3>
+            </div>
+            <div class="skills-item-grid">
+              <!-- HTML5 -->
+              <div class="skill-pill">
+                <svg class="tech-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M4 3h16l-2 15-6 3-6-3L4 3z" />
+                  <path d="M8 8h8M8 12h7l-.5 4-3.5 1-3.5-1" />
+                </svg>
+                <span>HTML5</span>
+              </div>
+              <!-- CSS3 -->
+              <div class="skill-pill">
+                <svg class="tech-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M4 3h16l-2 15-6 3-6-3L4 3z" />
+                  <path d="M7 8h10l-1 8-4 1.5L8 16" />
+                </svg>
+                <span>CSS3</span>
+              </div>
+              <!-- JavaScript -->
+              <div class="skill-pill">
+                <svg class="tech-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="3" y="3" width="18" height="18" rx="3" />
+                  <path
+                    d="M16 8v8a2 2 0 0 1-2 2M8 14c.5 1.5 2 2 3 2s2-.5 2-1.5-1-1.5-2-2-2-.5-2-2 1-2 2-2 2.5 1 2.5 2" />
+                </svg>
+                <span>JavaScript</span>
+              </div>
+              <!-- React -->
+              <div class="skill-pill">
+                <svg class="tech-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                  <ellipse cx="12" cy="12" rx="10" ry="4" />
+                  <ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(60 12 12)" />
+                  <ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(120 12 12)" />
+                  <circle cx="12" cy="12" r="1.8" fill="currentColor" />
+                </svg>
+                <span>React</span>
+              </div>
+              <!-- Tailwind CSS -->
+              <div class="skill-pill">
+                <svg class="tech-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M6 12c2-4 4-4 6-2s4 4 6 2 2-4 0-6c-2 2-4 2-6 0s-4-4-6-2 0 6 0 8z" />
+                </svg>
+                <span>Tailwind CSS</span>
+              </div>
+              <!-- Responsive Design -->
+              <div class="skill-pill">
+                <svg class="tech-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="2" y="4" width="20" height="12" rx="2" />
+                  <path d="M6 20h12M12 16v4" />
+                </svg>
+                <span>Responsive Design</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Category: Backend -->
+          <div class="skill-category-card reveal-on-scroll">
+            <div class="category-header">
+              <div class="category-icon-wrap icon-purple">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect>
+                  <rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect>
+                  <line x1="6" y1="6" x2="6.01" y2="6"></line>
+                  <line x1="6" y1="18" x2="6.01" y2="18"></line>
+                </svg>
+              </div>
+              <h3 class="category-title">Backend</h3>
+            </div>
+            <div class="skills-item-grid">
+              <!-- Node.js -->
+              <div class="skill-pill">
+                <svg class="tech-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 2l8 4.5v9L12 20l-8-4.5v-9L12 2z" />
+                  <path d="M12 6.5v9M8 8.8l4 2.3 4-2.3" />
+                </svg>
+                <span>Node.js</span>
+              </div>
+              <!-- Express.js -->
+              <div class="skill-pill">
+                <svg class="tech-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="9" />
+                  <path d="M8 12h8M12 8l4 4-4 4" />
+                </svg>
+                <span>Express.js</span>
+              </div>
+              <!-- Python -->
+              <div class="skill-pill">
+                <svg class="tech-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 2H8a3 3 0 0 0-3 3v3h6V7h1V3h-1" />
+                  <path d="M12 22h4a3 3 0 0 0 3-3v-3h-6v1h-1v4h1" />
+                  <circle cx="7.5" cy="5.5" r=".7" fill="currentColor" />
+                  <circle cx="16.5" cy="18.5" r=".7" fill="currentColor" />
+                </svg>
+                <span>Python</span>
+              </div>
+              <!-- Django -->
+              <div class="skill-pill">
+                <svg class="tech-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="3" y="3" width="18" height="18" rx="2" />
+                  <path d="M10 8v8a3 3 0 0 1-3-3M14 6v12" />
+                </svg>
+                <span>Django</span>
+              </div>
+              <!-- Go -->
+              <div class="skill-pill">
+                <svg class="tech-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="9" cy="12" r="5" />
+                  <path d="M14 10h6M14 14h4" />
+                </svg>
+                <span>Go</span>
+              </div>
+              <!-- Gin -->
+              <div class="skill-pill">
+                <svg class="tech-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M5 4h14l-3 14H8L5 4zM12 4v14" />
+                </svg>
+                <span>Gin</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Category: Databases -->
+          <div class="skill-category-card reveal-on-scroll">
+            <div class="category-header">
+              <div class="category-icon-wrap icon-emerald">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
+                  <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
+                  <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
+                </svg>
+              </div>
+              <h3 class="category-title">Databases</h3>
+            </div>
+            <div class="skills-item-grid">
+              <!-- MongoDB -->
+              <div class="skill-pill">
+                <svg class="tech-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 2s-6 7.5-6 12a6 6 0 0 0 12 0c0-4.5-6-12-6-12z" />
+                  <path d="M12 2v20" />
+                </svg>
+                <span>MongoDB</span>
+              </div>
+              <!-- MySQL -->
+              <div class="skill-pill">
+                <svg class="tech-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <ellipse cx="12" cy="6" rx="8" ry="3" />
+                  <path d="M4 6v8c0 1.66 3.58 3 8 3s8-1.34 8-3V6" />
+                  <path d="M4 10c0 1.66 3.58 3 8 3s8-1.34 8-3" />
+                </svg>
+                <span>MySQL</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Category: Tools & DevOps -->
+          <div class="skill-category-card reveal-on-scroll">
+            <div class="category-header">
+              <div class="category-icon-wrap icon-amber">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path
+                    d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z">
+                  </path>
+                </svg>
+              </div>
+              <h3 class="category-title">Tools &amp; DevOps</h3>
+            </div>
+            <div class="skills-item-grid">
+              <!-- Git -->
+              <div class="skill-pill">
+                <svg class="tech-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="6" cy="6" r="2.5" />
+                  <circle cx="18" cy="9" r="2.5" />
+                  <circle cx="6" cy="18" r="2.5" />
+                  <path d="M6 8.5v7M8 7l8 2" />
+                </svg>
+                <span>Git</span>
+              </div>
+              <!-- GitHub -->
+              <div class="skill-pill">
+                <svg class="tech-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path
+                    d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
+                </svg>
+                <span>GitHub</span>
+              </div>
+              <!-- Docker -->
+              <div class="skill-pill">
+                <svg class="tech-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M2 13h18c-1 4-5 6-9 6s-8-2-9-6zM5 10h2v3H5zm4 0h2v3H9zm4 0h2v3h-2zm-4-4h2v3H9z" />
+                </svg>
+                <span>Docker</span>
+              </div>
+              <!-- Jenkins -->
+              <div class="skill-pill">
+                <svg class="tech-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="7" r="4" />
+                  <path d="M6 21v-2a6 6 0 0 1 12 0v2M9 11l3 3 3-3" />
+                </svg>
+                <span>Jenkins</span>
+              </div>
+              <!-- Linux -->
+              <div class="skill-pill">
+                <svg class="tech-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 3a4 4 0 0 0-4 4v5a4 4 0 0 0 8 0V7a4 4 0 0 0-4-4z" />
+                  <path d="M6 14v3a5 5 0 0 0 10 0v-3M8 21h8" />
+                </svg>
+                <span>Linux</span>
+              </div>
+              <!-- REST APIs -->
+              <div class="skill-pill">
+                <svg class="tech-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M4 12h16M12 4v16M8 8l8 8M16 8l-8 8" />
+                </svg>
+                <span>REST APIs</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Category: Design -->
+          <div class="skill-category-card reveal-on-scroll">
+            <div class="category-header">
+              <div class="category-icon-wrap icon-pink">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <circle cx="12" cy="12" r="4"></circle>
+                  <line x1="4.93" y1="4.93" x2="9.17" y2="9.17"></line>
+                  <line x1="14.83" y1="14.83" x2="19.07" y2="19.07"></line>
+                </svg>
+              </div>
+              <h3 class="category-title">Design</h3>
+            </div>
+            <div class="skills-item-grid">
+              <!-- UI/UX Design -->
+              <div class="skill-pill">
+                <svg class="tech-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="3" y="3" width="18" height="18" rx="4" />
+                  <path d="M3 9h18M9 21V9" />
+                </svg>
+                <span>UI/UX Design</span>
+              </div>
+              <!-- Figma -->
+              <div class="skill-pill">
+                <svg class="tech-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="15" cy="12" r="3" />
+                  <circle cx="9" cy="18" r="3" />
+                  <path d="M6 3h6a3 3 0 0 1 0 6H6zM6 9h6a3 3 0 0 1 0 6H6z" />
+                </svg>
+                <span>Figma</span>
+              </div>
+              <!-- Responsive Interfaces -->
+              <div class="skill-pill">
+                <svg class="tech-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="2" y="3" width="14" height="10" rx="1.5" />
+                  <rect x="12" y="9" width="10" height="12" rx="2" />
+                </svg>
+                <span>Responsive Interfaces</span>
+              </div>
+              <!-- Design Systems -->
+              <div class="skill-pill">
+                <svg class="tech-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="3" y="3" width="7" height="7" />
+                  <rect x="14" y="3" width="7" height="7" />
+                  <rect x="14" y="14" width="7" height="7" />
+                  <rect x="3" y="14" width="7" height="7" />
+                </svg>
+                <span>Design Systems</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHAT I DO / CAPABILITIES -->
+    <section id="capabilities" class="section capabilities-section" aria-label="Capabilities and Services">
+      <div class="container">
+        <div class="section-header reveal-on-scroll">
+          <span class="section-kicker">// 04. CAPABILITIES</span>
+          <h2 class="section-title">What I Do</h2>
+          <p class="section-desc">Focused engineering and thoughtful design across modern product layers.</p>
+        </div>
+
+        <div class="capabilities-grid">
+          <!-- Card 1 -->
+          <div class="capability-card reveal-on-scroll">
+            <div class="capability-top">
+              <span class="capability-index">01</span>
+              <div class="capability-icon">
+                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="16 18 22 12 16 6"></polyline>
+                  <polyline points="8 6 2 12 8 18"></polyline>
+                </svg>
+              </div>
+            </div>
+            <h3 class="capability-heading">Full Stack Development</h3>
+            <p class="capability-body">
+              Building responsive frontend experiences and reliable backend systems that operate in harmony.
+            </p>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="capability-card reveal-on-scroll">
+            <div class="capability-top">
+              <span class="capability-index">02</span>
+              <div class="capability-icon">
+                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect>
+                  <rect x="9" y="9" width="6" height="6"></rect>
+                  <line x1="9" y1="1" x2="9" y2="4"></line>
+                  <line x1="15" y1="1" x2="15" y2="4"></line>
+                  <line x1="9" y1="20" x2="9" y2="23"></line>
+                  <line x1="15" y1="20" x2="15" y2="23"></line>
+                </svg>
+              </div>
+            </div>
+            <h3 class="capability-heading">Backend Development</h3>
+            <p class="capability-body">
+              Working with APIs, databases, authentication, and server-side development to construct sturdy data
+              foundations.
+            </p>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="capability-card reveal-on-scroll">
+            <div class="capability-top">
+              <span class="capability-index">03</span>
+              <div class="capability-icon">
+                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 20h9"></path>
+                  <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
+                </svg>
+              </div>
+            </div>
+            <h3 class="capability-heading">UI/UX Design</h3>
+            <p class="capability-body">
+              Designing clean, intuitive, user-focused digital interfaces that elevate usability and technical elegance.
+            </p>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="capability-card reveal-on-scroll">
+            <div class="capability-top">
+              <span class="capability-index">04</span>
+              <div class="capability-icon">
+                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <path d="M16.2 7.8l-2 6.3-6.4 2.1 2-6.3z"></path>
+                </svg>
+              </div>
+            </div>
+            <h3 class="capability-heading">Continuous Learning</h3>
+            <p class="capability-body">
+              Exploring technologies such as Go, Gin, Python, Django, and modern development practices to broaden
+              architectural skills.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EDUCATION SECTION -->
+    <section id="education" class="section education-section" aria-label="Education Details">
+      <div class="container">
+        <div class="section-header reveal-on-scroll">
+          <span class="section-kicker">// 05. EDUCATION</span>
+          <h2 class="section-title">Academic Background</h2>
+          <p class="section-desc">Formal foundation in computer science and application development.</p>
+        </div>
+
+        <div class="education-card-wrapper reveal-on-scroll">
+          <article class="education-card">
+            <div class="edu-icon-badge">
+              <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+              </svg>
+            </div>
+            <div class="edu-details">
+              <h3 class="edu-degree">Bachelor of Computer Applications (BCA)</h3>
+              <div class="edu-university">Medhavi Skills University</div>
+              <div class="edu-focus-pill">
+                <span class="focus-label">Specialization:</span>
+                <span class="focus-val">Full Stack Development</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ACHIEVEMENTS SECTION -->
+    <section id="achievements" class="section achievements-section" aria-label="Hackathons and Achievements">
+      <div class="container">
+        <div class="section-header reveal-on-scroll">
+          <span class="section-kicker">// 06. ACHIEVEMENTS</span>
+          <h2 class="section-title">Hackathon Milestones</h2>
+          <p class="section-desc">Collaborative competitive coding and problem-solving under real-time constraints.</p>
+        </div>
+
+        <div class="achievements-grid">
+          <!-- Achievement 1 -->
+          <article class="achievement-card reveal-on-scroll">
+            <div class="achieve-badge">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="8" r="7"></circle>
+                <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
+              </svg>
+              <span>Finalist</span>
+            </div>
+            <h3 class="achieve-title">Hackathon SumMIT@Sikkim'50</h3>
+            <p class="achieve-role-tag">Role: Team Leader (3-Member Team)</p>
+            <p class="achieve-desc">
+              Selected as a finalist in the SumMIT@Sikkim'50 Hackathon, leading a 3-member team to design and build
+              technical solutions under competitive evaluation.
+            </p>
+          </article>
+
+          <!-- Achievement 2 -->
+          <article class="achievement-card reveal-on-scroll">
+            <div class="achieve-badge badge-neutral">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <polygon
+                  points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
+                </polygon>
+              </svg>
+              <span>Hackathon Team</span>
+            </div>
+            <h3 class="achieve-title">Smart India Hackathon 2025</h3>
+            <p class="achieve-role-tag">Internal Hackathon • Team Laughing Buddhas</p>
+            <p class="achieve-desc">
+              Participated as a team member of Team Laughing Buddhas in the Smart India Hackathon 2025 internal
+              evaluation rounds, contributing to rapid technical prototyping.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CURRENTLY LEARNING SECTION -->
+    <section id="learning" class="section learning-section" aria-label="Currently Exploring and Learning">
+      <div class="container">
+        <div class="section-header reveal-on-scroll">
+          <span class="section-kicker">// 07. CONTINUOUS LEARNING</span>
+          <h2 class="section-title">Currently Exploring</h2>
+          <p class="section-desc">Actively studying and expanding into these technologies and practices to deepen
+            full-stack engineering proficiency.</p>
+        </div>
+
+        <div class="learning-cards-grid">
+          <div class="learning-card reveal-on-scroll">
+            <div class="learning-status-tag">Ongoing Study</div>
+            <h3 class="learning-topic">Go</h3>
+            <p class="learning-sub">High-performance compiled language for scalable concurrent services.</p>
+          </div>
+
+          <div class="learning-card reveal-on-scroll">
+            <div class="learning-status-tag">Ongoing Study</div>
+            <h3 class="learning-topic">Gin</h3>
+            <p class="learning-sub">Fast, lightweight web framework for building microservices in Go.</p>
+          </div>
+
+          <div class="learning-card reveal-on-scroll">
+            <div class="learning-status-tag">Ongoing Study</div>
+            <h3 class="learning-topic">Python</h3>
+            <p class="learning-sub">Scripting, automation, clean syntax, and backend development.</p>
+          </div>
+
+          <div class="learning-card reveal-on-scroll">
+            <div class="learning-status-tag">Ongoing Study</div>
+            <h3 class="learning-topic">Django</h3>
+            <p class="learning-sub">Robust batteries-included framework for complex web architectures.</p>
+          </div>
+
+          <div class="learning-card reveal-on-scroll">
+            <div class="learning-status-tag">Ongoing Study</div>
+            <h3 class="learning-topic">Backend Architecture</h3>
+            <p class="learning-sub">API contracts, data consistency, caching strategies, and clean separation of
+              concerns.</p>
+          </div>
+
+          <div class="learning-card reveal-on-scroll">
+            <div class="learning-status-tag">Ongoing Study</div>
+            <h3 class="learning-topic">DevOps Fundamentals</h3>
+            <p class="learning-sub">Containerization workflows, CI/CD pipelines, and cloud deployment practices.</p>
+          </div>
+
+          <div class="learning-card reveal-on-scroll">
+            <div class="learning-status-tag">Ongoing Study</div>
+            <h3 class="learning-topic">Advanced Full Stack</h3>
+            <p class="learning-sub">Bridging complex backend logic with polished, accessible modern frontend UI.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SELECTED WORK / PROJECTS PLACEHOLDER -->
+    <section id="projects" class="section projects-section" aria-label="Selected Projects">
+      <div class="container">
+        <div class="section-header reveal-on-scroll">
+          <span class="section-kicker">// 08. PORTFOLIO WORK</span>
+          <h2 class="section-title">Selected Work</h2>
+          <p class="section-desc">Projects are currently being curated. More work will be showcased here soon.</p>
+        </div>
+
+        <!-- 
+          ======================================================================
+          PROJECTS PLACEHOLDER NOTICE:
+          To insert your real projects later, replace each `.project-placeholder-card`
+          with your actual project markup below:
+          
+          <article class="project-card">
+            <div class="project-media">
+              <img src="./assets/images/project-preview.jpg" alt="Project Name">
+            </div>
+            <div class="project-details">
+              <h3>Project Title</h3>
+              <p>Description of the problem solved and architecture.</p>
+              <div class="project-tech-tags">
+                <span>React</span><span>Node.js</span><span>MongoDB</span>
+              </div>
+              <div class="project-links">
+                <a href="https://github.com/yourusername/repo" target="_blank" rel="noopener">Code</a>
+                <a href="https://project-demo.com" target="_blank" rel="noopener">Live Demo</a>
+              </div>
+            </div>
+          </article>
+          ======================================================================
+        -->
+        <div class="projects-grid">
+          <!-- Placeholder Card 01 -->
+          <div class="project-placeholder-card reveal-on-scroll">
+            <div class="placeholder-header">
+              <span class="placeholder-tag">01 — Coming Soon</span>
+              <div class="placeholder-indicator">
+                <span class="indicator-pulse"></span>
+                <span>In Curation</span>
+              </div>
+            </div>
+            <div class="placeholder-canvas" aria-hidden="true">
+              <div class="abstract-wireframe">
+                <div class="wire-header"></div>
+                <div class="wire-columns">
+                  <div class="wire-sidebar"></div>
+                  <div class="wire-content">
+                    <div class="wire-line"></div>
+                    <div class="wire-line short"></div>
+                    <div class="wire-blocks">
+                      <div class="wire-block"></div>
+                      <div class="wire-block"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="placeholder-info">
+              <h3 class="placeholder-title">Web Application Project</h3>
+              <p class="placeholder-text">Full-stack web application showcase currently undergoing documentation and
+                preparation.</p>
+              <div class="placeholder-tags">
+                <span class="badge-placeholder">Full Stack</span>
+                <span class="badge-placeholder">APIs</span>
+                <span class="badge-placeholder">UI/UX</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Placeholder Card 02 -->
+          <div class="project-placeholder-card reveal-on-scroll">
+            <div class="placeholder-header">
+              <span class="placeholder-tag">02 — Coming Soon</span>
+              <div class="placeholder-indicator">
+                <span class="indicator-pulse"></span>
+                <span>In Curation</span>
+              </div>
+            </div>
+            <div class="placeholder-canvas" aria-hidden="true">
+              <div class="abstract-wireframe wireframe-api">
+                <div class="code-wire-row"><span class="code-dot red"></span><span class="code-dot yellow"></span><span
+                    class="code-dot green"></span></div>
+                <div class="code-wire-lines">
+                  <div class="code-wire-line w-40"></div>
+                  <div class="code-wire-line w-80"></div>
+                  <div class="code-wire-line w-60"></div>
+                  <div class="code-wire-line w-70"></div>
+                </div>
+              </div>
+            </div>
+            <div class="placeholder-info">
+              <h3 class="placeholder-title">Backend Architecture &amp; API</h3>
+              <p class="placeholder-text">Server-side service demonstrating structured database schemas and endpoint
+                reliability.</p>
+              <div class="placeholder-tags">
+                <span class="badge-placeholder">Backend</span>
+                <span class="badge-placeholder">Database</span>
+                <span class="badge-placeholder">Architecture</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Placeholder Card 03 -->
+          <div class="project-placeholder-card reveal-on-scroll">
+            <div class="placeholder-header">
+              <span class="placeholder-tag">03 — Coming Soon</span>
+              <div class="placeholder-indicator">
+                <span class="indicator-pulse"></span>
+                <span>In Curation</span>
+              </div>
+            </div>
+            <div class="placeholder-canvas" aria-hidden="true">
+              <div class="abstract-wireframe wireframe-design">
+                <div class="design-circle-cluster">
+                  <div class="design-circle c1"></div>
+                  <div class="design-circle c2"></div>
+                  <div class="design-circle c3"></div>
+                </div>
+              </div>
+            </div>
+            <div class="placeholder-info">
+              <h3 class="placeholder-title">Modern Interface &amp; Interaction</h3>
+              <p class="placeholder-text">Focused frontend showcase demonstrating clean design system implementation and
+                micro-interactions.</p>
+              <div class="placeholder-tags">
+                <span class="badge-placeholder">Design System</span>
+                <span class="badge-placeholder">Frontend</span>
+                <span class="badge-placeholder">Motion</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="section contact-section" aria-label="Contact and Social Links">
+      <div class="container">
+        <div class="section-header reveal-on-scroll">
+          <span class="section-kicker">// 09. GET IN TOUCH</span>
+          <h2 class="section-title">Let's build something meaningful.</h2>
+          <p class="section-desc">Whether you're looking to collaborate, discuss an opportunity, or simply talk
+            technology, I'd love to connect.</p>
+        </div>
+
+        <div class="contact-grid">
+          <!-- Left Column: Direct Links -->
+          <div class="contact-info-column reveal-on-scroll">
+            <h3 class="contact-subhead">Direct Contact &amp; Profiles</h3>
+            <p class="contact-subtext">
+              Feel free to reach out directly via email or message me on WhatsApp and GitHub.
+            </p>
+
+            <div class="contact-methods-list">
+              <!-- Email Item -->
+              <a href="mailto:thandupsherpa153@gmail.com" class="contact-method-card" title="Click to send email">
+                <div class="method-icon-wrap">
+                  <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                    <polyline points="22,6 12,13 2,6"></polyline>
+                  </svg>
+                </div>
+                <div class="method-content">
+                  <span class="method-label">Email</span>
+                  <span class="method-value">thandupsherpa153@gmail.com</span>
+                </div>
+                <div class="method-arrow" aria-hidden="true">→</div>
+              </a>
+
+              <!-- WhatsApp Item -->
+              <a href="https://wa.me/917864928627" target="_blank" rel="noopener noreferrer"
+                class="contact-method-card contact-whatsapp-card" title="Chat on WhatsApp">
+                <div class="method-icon-wrap icon-whatsapp">
+                  <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
+                    <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2m.01 1.67c2.2 0 4.26.86 5.82 2.42a8.225 8.225 0 0 1 2.41 5.83c0 4.54-3.7 8.24-8.24 8.24-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.196 8.196 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24m4.52 11.66c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.13-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.06-.39-2.03-1.25-.75-.67-1.26-1.5-1.41-1.75-.14-.25-.02-.39.11-.51.11-.11.25-.29.37-.44.13-.14.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.13-.56-1.34-.76-1.84-.2-.49-.4-.42-.56-.43h-.47c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1 0 1.24.9 2.44 1.03 2.61.13.17 1.78 2.72 4.31 3.81.6.26 1.07.42 1.44.53.61.2 1.16.17 1.6.1.49-.07 1.47-.6 1.68-1.18.2-.58.2-1.08.14-1.18-.06-.1-.23-.17-.48-.3z"/>
+                  </svg>
+                </div>
+                <div class="method-content">
+                  <span class="method-label">WhatsApp</span>
+                  <span class="method-value">+91 7864928627</span>
+                </div>
+                <div class="method-arrow" aria-hidden="true">↗</div>
+              </a>
+
+              <!-- GitHub Item -->
+              <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer"
+                class="contact-method-card" title="Open GitHub Profile in new tab">
+                <div class="method-icon-wrap">
+                  <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path
+                      d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+                    </path>
+                  </svg>
+                </div>
+                <div class="method-content">
+                  <span class="method-label">GitHub</span>
+                  <span class="method-value">github.com/yourusername</span>
+                </div>
+                <div class="method-arrow" aria-hidden="true">↗</div>
+              </a>
+
+              <!-- Location Item -->
+              <div class="contact-method-card method-static">
+                <div class="method-icon-wrap">
+                  <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                    <circle cx="12" cy="10" r="3"></circle>
+                  </svg>
+                </div>
+                <div class="method-content">
+                  <span class="method-label">Location</span>
+                  <span class="method-value">Sikkim, India</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column: Interactive Demo Contact Form -->
+          <div class="contact-form-column reveal-on-scroll">
+            <div class="form-container">
+              <div class="form-card-header">
+                <h3 class="form-title">Send a Message</h3>
+                <span class="demo-badge">Static Form UI</span>
+              </div>
+
+              <!-- Message Form -->
+              <form id="portfolio-contact-form" class="portfolio-form" novalidate>
+                <div class="form-group">
+                  <label for="form-name" class="form-label">Your Name <span class="required-star">*</span></label>
+                  <input type="text" id="form-name" name="name" class="form-input" placeholder="e.g. Alex Chen" required
+                    autocomplete="name">
+                  <span class="form-field-error" id="name-error" aria-live="polite"></span>
+                </div>
+
+                <div class="form-group">
+                  <label for="form-email" class="form-label">Your Email <span class="required-star">*</span></label>
+                  <input type="email" id="form-email" name="email" class="form-input"
+                    placeholder="e.g. alex@company.com" required autocomplete="email">
+                  <span class="form-field-error" id="email-error" aria-live="polite"></span>
+                </div>
+
+                <div class="form-group">
+                  <label for="form-message" class="form-label">Your Message <span class="required-star">*</span></label>
+                  <textarea id="form-message" name="message" rows="4" class="form-textarea"
+                    placeholder="Hi Thandup, let's connect about..." required></textarea>
+                  <span class="form-field-error" id="message-error" aria-live="polite"></span>
+                </div>
+
+                <button type="submit" id="form-submit-btn" class="btn btn-primary btn-block">
+                  <span>Send Message</span>
+                  <svg viewBox="0 0 20 20" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M4 10H16M16 10L11 5M16 10L11 15" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                </button>
+              </form>
+
+              <!-- Static Website Notice Dialog / Alert -->
+              <div id="form-status-message" class="form-alert-banner" role="alert" style="display: none;">
+                <div class="alert-icon-wrap">
+                  <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <line x1="12" y1="8" x2="12" y2="12"></line>
+                    <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                  </svg>
+                </div>
+                <div class="alert-content">
+                  <strong class="alert-title">Notice:</strong>
+                  <p class="alert-text">This form is currently a demo on this static portfolio. Please contact me
+                    directly using the direct email or WhatsApp links provided.</p>
+                  <a href="mailto:thandupsherpa153@gmail.com" class="alert-link-btn">Launch Email App →</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container footer-container">
+      <div class="footer-brand-column">
+        <a href="#hero" class="brand-logo footer-logo" aria-label="Back to top">
+          <span class="logo-text">THANDUP</span><span class="logo-accent">.</span>
+        </a>
+        <p class="footer-tagline">Full Stack Developer • UI/UX Designer</p>
+      </div>
+
+      <div class="footer-social-links">
+        <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer" class="footer-social-link"
+          aria-label="GitHub Profile">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path
+              d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+            </path>
+          </svg>
+          <span>GitHub</span>
+        </a>
+
+        <a href="https://wa.me/917864928627" target="_blank" rel="noopener noreferrer"
+          class="footer-social-link footer-whatsapp-link" aria-label="Chat on WhatsApp">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+            <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2m.01 1.67c2.2 0 4.26.86 5.82 2.42a8.225 8.225 0 0 1 2.41 5.83c0 4.54-3.7 8.24-8.24 8.24-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.196 8.196 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24m4.52 11.66c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.13-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.06-.39-2.03-1.25-.75-.67-1.26-1.5-1.41-1.75-.14-.25-.02-.39.11-.51.11-.11.25-.29.37-.44.13-.14.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.13-.56-1.34-.76-1.84-.2-.49-.4-.42-.56-.43h-.47c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1 0 1.24.9 2.44 1.03 2.61.13.17 1.78 2.72 4.31 3.81.6.26 1.07.42 1.44.53.61.2 1.16.17 1.6.1.49-.07 1.47-.6 1.68-1.18.2-.58.2-1.08.14-1.18-.06-.1-.23-.17-.48-.3z"/>
+          </svg>
+          <span>WhatsApp</span>
+        </a>
+
+        <a href="mailto:thandupsherpa153@gmail.com" class="footer-social-link" aria-label="Send Email">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+            <polyline points="22,6 12,13 2,6"></polyline>
+          </svg>
+          <span>Email</span>
+        </a>
+      </div>
+
+      <div class="footer-bottom-row">
+        <p class="footer-copyright">
+          &copy; 2026 Thandup Sherpa. Built with HTML, CSS &amp; JavaScript.
+        </p>
+        <a href="#hero" class="back-to-top-btn" aria-label="Scroll back to top">
+          <span>Back to top</span>
+          <svg viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M10 16V4M4 10l6-6 6 6" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Vanilla JavaScript -->
+  <script src="./script.js"></script>
+</body>
+
+</html>
