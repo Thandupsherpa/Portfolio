@@ -114,10 +114,11 @@ Deploying to GitHub Pages takes under two minutes:
 ## Customization Guide
 
 ### 1. Update Contact & Social Information
-Your email and WhatsApp are already integrated:
+Your email, WhatsApp, and GitHub are integrated:
 - **Email**: `thandupsherpa153@gmail.com`
 - **WhatsApp**: `https://wa.me/917864928627` (`+91 7864928627`)
-- **GitHub**: Search for `yourusername` in `index.html` and replace with your GitHub handle.
+- **GitHub**: `https://github.com/Thandupsherps` (`github.com/Thandupsherps`)
+- **Contact Form**: Powered by FormSubmit AJAX (`https://formsubmit.co/thandupsherpa153@gmail.com`) with instant mailto fallback. Direct messages are delivered straight to your inbox without requiring backend infrastructure.
 
 ### 2. How to Add Real Projects
 When you are ready to showcase real projects, locate the `<!-- PROJECTS PLACEHOLDER NOTICE -->` in `index.html` under `<section id="projects">`.
@@ -144,7 +145,7 @@ Replace any `.project-placeholder-card` with an active project card like this:
       <span>REST API</span>
     </div>
     <div class="project-links">
-      <a href="https://github.com/yourusername/repo-name" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm">
+      <a href="https://github.com/Thandupsherps/project-repo" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm">
         GitHub
       </a>
       <a href="https://your-demo-link.com" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">

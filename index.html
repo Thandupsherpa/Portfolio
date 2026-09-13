@@ -105,15 +105,31 @@
   <!-- Reading Progress Bar -->
   <div id="scroll-progress" class="scroll-progress-bar" aria-hidden="true"></div>
 
-  <!-- Custom Cursor Elements (Desktop only) -->
-  <div id="custom-cursor-dot" class="cursor-dot" aria-hidden="true"></div>
-  <div id="custom-cursor-ring" class="cursor-ring" aria-hidden="true"></div>
+  <!-- Dragon Cursor System (Desktop only) -->
+  <div id="dragon-cursor" class="dragon-cursor-container" aria-hidden="true">
+    <canvas id="dragon-canvas" class="dragon-canvas"></canvas>
+    <div class="dragon-body-trail" id="dragon-body-trail"></div>
+    <div id="dragon-lead" class="dragon-lead"></div>
+  </div>
 
   <!-- Background Ambient Atmosphere -->
   <div class="ambient-layer" aria-hidden="true">
     <div class="ambient-glow glow-top-left"></div>
     <div class="ambient-glow glow-bottom-right"></div>
     <div class="grid-mesh-overlay"></div>
+    <!-- Moving Floating Cyber Squares -->
+    <div class="floating-squares-container">
+      <span class="bg-moving-square sq-1"></span>
+      <span class="bg-moving-square sq-2"></span>
+      <span class="bg-moving-square sq-3"></span>
+      <span class="bg-moving-square sq-4"></span>
+      <span class="bg-moving-square sq-5"></span>
+      <span class="bg-moving-square sq-6"></span>
+      <span class="bg-moving-square sq-7"></span>
+      <span class="bg-moving-square sq-8"></span>
+      <span class="bg-moving-square sq-9"></span>
+      <span class="bg-moving-square sq-10"></span>
+    </div>
   </div>
 
   <!-- Navigation -->
@@ -210,6 +226,17 @@
 
       <div class="mobile-drawer-footer">
         <a href="#contact" class="btn btn-primary btn-block mobile-cta-link">Let's Connect</a>
+        <div class="mobile-drawer-socials">
+          <a href="https://github.com/Thandupsherps" target="_blank" rel="noopener noreferrer" class="mobile-social-pill" aria-label="GitHub Profile">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+            </svg>
+            <span>GitHub</span>
+          </a>
+          <a href="https://wa.me/917864928627" target="_blank" rel="noopener noreferrer" class="mobile-social-pill" aria-label="WhatsApp">
+            <span>WhatsApp</span>
+          </a>
+        </div>
         <p class="mobile-location-tag">Based in Sikkim, India</p>
       </div>
     </div>
@@ -221,10 +248,16 @@
       <div class="container hero-container">
         <!-- Hero Left / Content -->
         <div class="hero-content reveal-on-scroll">
-          <!-- Status Indicator Pill -->
-          <div class="status-pill" role="status" aria-live="polite">
-            <span class="status-dot"></span>
-            <span class="status-text">AVAILABLE FOR OPPORTUNITIES</span>
+          <!-- Status Indicator Pill & Mini Profile Avatar -->
+          <div class="hero-status-row">
+            <div class="hero-mini-avatar-wrap" aria-hidden="true">
+              <img src="./assets/images/thandup-profile.png" alt="Thandup Sherpa" class="hero-mini-avatar" width="40" height="40">
+              <span class="mini-avatar-pulse"></span>
+            </div>
+            <div class="status-pill" role="status" aria-live="polite">
+              <span class="status-dot"></span>
+              <span class="status-text">AVAILABLE FOR OPPORTUNITIES</span>
+            </div>
           </div>
 
           <!-- Main Headline -->
@@ -271,37 +304,150 @@
           </a>
         </div>
 
-        <!-- Hero Right / Developer Visual Terminal -->
+        <!-- Hero Right / Developer Visual Showcase -->
         <div class="hero-visual reveal-on-scroll">
-          <div class="terminal-window" role="region" aria-label="Developer Profile Terminal">
-            <!-- Terminal Titlebar -->
-            <div class="terminal-bar">
-              <div class="terminal-controls" aria-hidden="true">
-                <span class="window-dot dot-close"></span>
-                <span class="window-dot dot-minimize"></span>
-                <span class="window-dot dot-maximize"></span>
-              </div>
-              <div class="terminal-title">
-                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"
-                  stroke-linecap="round" stroke-linejoin="round" class="file-code-icon">
-                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                  <polyline points="14 2 14 8 20 8"></polyline>
-                  <line x1="16" y1="13" x2="8" y2="13"></line>
-                  <line x1="16" y1="17" x2="8" y2="17"></line>
-                  <polyline points="10 9 9 9 8 9"></polyline>
+          <!-- Visual Mode Switcher -->
+          <div class="hero-visual-header">
+            <div class="visual-tabs-nav" role="tablist" aria-label="Visual Showcase Modes">
+              <button type="button" class="visual-tab-btn active" id="tab-profile-btn" role="tab" aria-selected="true" aria-controls="showcase-panel-profile">
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+                <span>Visual Profile</span>
+              </button>
+              <button type="button" class="visual-tab-btn" id="tab-code-btn" role="tab" aria-selected="false" aria-controls="showcase-panel-code">
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <polyline points="16 18 22 12 16 6"></polyline>
+                  <polyline points="8 6 2 12 8 18"></polyline>
                 </svg>
                 <span>developer.config.js</span>
-              </div>
-              <div class="terminal-status">
-                <span class="pulse-indicator"></span>
-                <span class="status-node">node v20.x</span>
+              </button>
+            </div>
+            <div class="visual-system-tag">
+              <span class="status-ping-dot"></span>
+              <span>LIVE</span>
+            </div>
+          </div>
+
+          <!-- Showcase Panels Container -->
+          <div class="hero-showcase-panels">
+            <!-- Panel 1: Interactive Profile Card (Active by Default) -->
+            <div class="hero-panel panel-profile active" id="showcase-panel-profile" role="tabpanel" aria-labelledby="tab-profile-btn">
+              <div class="hero-profile-card" id="hero-profile-card">
+                <!-- Ambient Rotating Cyber Aura & Glowing Halo -->
+                <div class="profile-aura-backdrop" aria-hidden="true">
+                  <div class="aura-conic-glow"></div>
+                  <div class="aura-radial-cyan"></div>
+                  <div class="aura-radial-purple"></div>
+                  <div class="cyber-grid-mesh"></div>
+                </div>
+
+                <!-- High-Tech Cyber Corner Brackets -->
+                <span class="cyber-bracket bracket-tl" aria-hidden="true"></span>
+                <span class="cyber-bracket bracket-tr" aria-hidden="true"></span>
+                <span class="cyber-bracket bracket-bl" aria-hidden="true"></span>
+                <span class="cyber-bracket bracket-br" aria-hidden="true"></span>
+
+                <!-- Card Header Overlay -->
+                <div class="profile-card-topbar">
+                  <div class="profile-verified-badge">
+                    <span class="verified-dot"></span>
+                    <span class="verified-text">DEV // VERIFIED</span>
+                  </div>
+                  <div class="profile-sys-spec">SIKKIM, IN</div>
+                </div>
+
+                <!-- Main Portrait Stage with 3D Depth -->
+                <div class="profile-stage-wrapper">
+                  <!-- Holographic Biometric Scanner Beam -->
+                  <div class="hologram-scanner-beam" aria-hidden="true"></div>
+
+                  <!-- Rotating Cyber Orbit Rings -->
+                  <div class="cyber-orbit-ring ring-outer" aria-hidden="true"></div>
+                  <div class="cyber-orbit-ring ring-inner" aria-hidden="true"></div>
+
+                  <!-- Portrait Image Element -->
+                  <div class="portrait-media-frame">
+                    <img
+                      src="./assets/images/thandup-profile.png"
+                      alt="Thandup Sherpa — Full Stack Developer"
+                      class="hero-portrait-image"
+                      width="853"
+                      height="1024"
+                      fetchpriority="high"
+                      loading="eager"
+                    >
+                    <!-- Bottom Gradient Floor Blend -->
+                    <div class="portrait-floor-fade" aria-hidden="true"></div>
+                  </div>
+
+                  <!-- Floating Tech Chips (Interactive Floating Micro-elements) -->
+                  <div class="hero-floating-pill pill-role" aria-hidden="true">
+                    <span class="pill-icon">⚡</span>
+                    <span class="pill-label">Full Stack Dev</span>
+                  </div>
+                  <div class="hero-floating-pill pill-intern" aria-hidden="true">
+                    <span class="pill-icon">💼</span>
+                    <span class="pill-label">EMEYC Intern</span>
+                  </div>
+                  <div class="hero-floating-pill pill-stack" aria-hidden="true">
+                    <span class="pill-icon">&lt;/&gt;</span>
+                    <span class="pill-label">React • Node • Go</span>
+                  </div>
+                </div>
+
+                <!-- Card Bottom Bio Bar -->
+                <div class="profile-card-meta">
+                  <div class="meta-author-details">
+                    <h2 class="meta-author-name">Thandup Sherpa</h2>
+                    <p class="meta-author-role">Full Stack Developer &amp; UI/UX Designer</p>
+                  </div>
+                  <button type="button" class="btn-inspect-terminal" id="btn-inspect-terminal" aria-label="View developer.config.js code in terminal">
+                    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+                      <polyline points="16 18 22 12 16 6"></polyline>
+                      <polyline points="8 6 2 12 8 18"></polyline>
+                    </svg>
+                    <span>Config</span>
+                  </button>
+                </div>
               </div>
             </div>
 
-            <!-- Terminal Code Body -->
-            <div class="terminal-body">
-              <pre
-                class="code-pre"><code><span class="code-comment">// Engineered with precision &amp; modern standards</span>
+            <!-- Panel 2: Developer Terminal Window -->
+            <div class="hero-panel panel-code" id="showcase-panel-code" role="tabpanel" aria-labelledby="tab-code-btn">
+              <div class="terminal-window" role="region" aria-label="Developer Profile Terminal">
+                <!-- Terminal Titlebar -->
+                <div class="terminal-bar">
+                  <div class="terminal-controls" aria-hidden="true">
+                    <span class="window-dot dot-close"></span>
+                    <span class="window-dot dot-minimize"></span>
+                    <span class="window-dot dot-maximize"></span>
+                  </div>
+                  <div class="terminal-title">
+                    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"
+                      stroke-linecap="round" stroke-linejoin="round" class="file-code-icon">
+                      <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                      <polyline points="14 2 14 8 20 8"></polyline>
+                      <line x1="16" y1="13" x2="8" y2="13"></line>
+                      <line x1="16" y1="17" x2="8" y2="17"></line>
+                      <polyline points="10 9 9 9 8 9"></polyline>
+                    </svg>
+                    <span>developer.config.js</span>
+                  </div>
+                  <button type="button" class="btn-return-profile" id="btn-return-profile" aria-label="Return to visual profile view">
+                    <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                      <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
+                    <span>Visual</span>
+                  </button>
+                </div>
+
+                <!-- Terminal Code Body -->
+                <div class="terminal-body">
+                  <pre
+                    class="code-pre"><code><span class="code-comment">// Engineered with precision &amp; modern standards</span>
 <span class="token-keyword">const</span> <span class="token-variable">developer</span> = {
   <span class="token-property">name</span>: <span class="token-string">"Thandup Sherpa"</span>,
   <span class="token-property">role</span>: <span class="token-string">"Full Stack Developer"</span>,
@@ -313,38 +459,27 @@
     <span class="token-property">data</span>: [<span class="token-string">"MongoDB"</span>, <span class="token-string">"MySQL"</span>]
   },
   <span class="token-property">mindset</span>: <span class="token-string">"Build. Learn. Improve."</span>,
+  <span class="token-property">github</span>: <span class="token-string">"github.com/Thandupsherps"</span>,
   <span class="token-property">available</span>: <span class="token-boolean">true</span>
 };
 
 <span class="token-keyword">export default</span> <span class="token-variable">developer</span>;<span class="terminal-cursor" aria-hidden="true">_</span></code></pre>
-            </div>
+                </div>
 
-            <!-- Terminal Footer Status Bar -->
-            <div class="terminal-footer">
-              <div class="terminal-footer-item">
-                <span class="branch-icon">⌥</span>
-                <span>main*</span>
+                <!-- Terminal Footer Status Bar -->
+                <div class="terminal-footer">
+                  <div class="terminal-footer-item">
+                    <span class="branch-icon">⌥</span>
+                    <span>main*</span>
+                  </div>
+                  <div class="terminal-footer-item">
+                    <span class="check-icon">✓</span>
+                    <span>0 errors, 0 warnings</span>
+                  </div>
+                  <div class="terminal-footer-item code-encoding">UTF-8</div>
+                </div>
               </div>
-              <div class="terminal-footer-item">
-                <span class="check-icon">✓</span>
-                <span>0 errors, 0 warnings</span>
-              </div>
-              <div class="terminal-footer-item code-encoding">UTF-8</div>
             </div>
-          </div>
-
-          <!-- Floating Interactive Tech Badges -->
-          <div class="floating-chip chip-1" aria-hidden="true">
-            <span class="chip-glow"></span>
-            <span class="chip-code">&lt;FullStack /&gt;</span>
-          </div>
-          <div class="floating-chip chip-2" aria-hidden="true">
-            <span class="chip-icon">⚡</span>
-            <span>APIs &amp; Systems</span>
-          </div>
-          <div class="floating-chip chip-3" aria-hidden="true">
-            <span class="chip-icon">✦</span>
-            <span>Design Systems</span>
           </div>
         </div>
       </div>
@@ -377,6 +512,13 @@
             </p>
 
             <div class="about-signature-block">
+              <div class="about-author-badge">
+                <img src="./assets/images/thandup-profile.png" alt="Thandup Sherpa" class="about-author-avatar" width="44" height="44">
+                <div class="about-author-info">
+                  <span class="about-author-name">Thandup Sherpa</span>
+                  <span class="about-author-role">Full Stack Developer Intern • EMEYC</span>
+                </div>
+              </div>
               <div class="location-pill">
                 <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"
                   stroke-linecap="round" stroke-linejoin="round">
@@ -1005,139 +1147,318 @@
       </div>
     </section>
 
-    <!-- SELECTED WORK / PROJECTS PLACEHOLDER -->
+    <!-- SELECTED WORK / PROJECTS SECTION -->
     <section id="projects" class="section projects-section" aria-label="Selected Projects">
       <div class="container">
         <div class="section-header reveal-on-scroll">
           <span class="section-kicker">// 08. PORTFOLIO WORK</span>
-          <h2 class="section-title">Selected Work</h2>
-          <p class="section-desc">Projects are currently being curated. More work will be showcased here soon.</p>
+          <h2 class="section-title">Selected Projects</h2>
+          <p class="section-desc">Production-grade web platforms, operational intelligence systems, and immersive digital experiences engineered with robust full-stack architectures.</p>
         </div>
 
-        <!-- 
-          ======================================================================
-          PROJECTS PLACEHOLDER NOTICE:
-          To insert your real projects later, replace each `.project-placeholder-card`
-          with your actual project markup below:
-          
-          <article class="project-card">
-            <div class="project-media">
-              <img src="./assets/images/project-preview.jpg" alt="Project Name">
-            </div>
-            <div class="project-details">
-              <h3>Project Title</h3>
-              <p>Description of the problem solved and architecture.</p>
-              <div class="project-tech-tags">
-                <span>React</span><span>Node.js</span><span>MongoDB</span>
+        <div class="projects-grid">
+          <!-- PROJECT 01 (FLAGSHIP FEATURED): Digital Raid & Seizure Monitoring System -->
+          <article class="project-card featured-project-card reveal-on-scroll">
+            <div class="featured-badge-bar">
+              <div class="featured-pill">
+                <span class="pulse-beacon"></span>
+                <span>FEATURED PLATFORM // OPERATIONAL SYSTEM</span>
               </div>
-              <div class="project-links">
-                <a href="https://github.com/yourusername/repo" target="_blank" rel="noopener">Code</a>
-                <a href="https://project-demo.com" target="_blank" rel="noopener">Live Demo</a>
+              <span class="project-sys-spec">LAW ENFORCEMENT TECH</span>
+            </div>
+
+            <div class="featured-project-layout">
+              <!-- Left/Top: Visual Console Mockup -->
+              <div class="project-preview-frame">
+                <div class="preview-console-header">
+                  <div class="console-dots">
+                    <span class="c-dot red"></span>
+                    <span class="c-dot yellow"></span>
+                    <span class="c-dot green"></span>
+                  </div>
+                  <span class="console-title">enforcement-monitor.gov.in // GIS-RADAR</span>
+                  <span class="console-status"><span class="status-live-dot"></span> SECURE TELEMETRY</span>
+                </div>
+
+                <!-- Interactive High-Tech GIS / Operations Wireframe Graphic -->
+                <div class="preview-visual-canvas govtech-canvas" aria-hidden="true">
+                  <div class="gis-grid-overlay"></div>
+                  <div class="gis-radar-sweep"></div>
+                  <div class="gis-hotspot-pin pin-1"><span class="pin-pulse"></span><span class="pin-tag">SECTOR 4B • RAID ACTIVE</span></div>
+                  <div class="gis-hotspot-pin pin-2"><span class="pin-pulse"></span><span class="pin-tag">CHECKPOINT ALPHA</span></div>
+                  
+                  <div class="govtech-metric-overlay">
+                    <div class="metric-pill"><span class="metric-lbl">AI INCIDENT PARSER</span><span class="metric-val">99.2% ACCURACY</span></div>
+                    <div class="metric-pill"><span class="metric-lbl">SEIZURE LOGS</span><span class="metric-val">CHAIN-OF-CUSTODY VERIFIED</span></div>
+                  </div>
+                </div>
+
+                <div class="preview-cyber-corner tl"></div>
+                <div class="preview-cyber-corner tr"></div>
+                <div class="preview-cyber-corner bl"></div>
+                <div class="preview-cyber-corner br"></div>
+              </div>
+
+              <!-- Right/Bottom: Technical Architecture & Contribution -->
+              <div class="project-details-body">
+                <div class="project-meta-strip">
+                  <span class="project-category">Government / Law Enforcement Technology</span>
+                  <span class="meta-dot">•</span>
+                  <span class="project-role-tag">Full Stack Developer / Team Member</span>
+                </div>
+
+                <h3 class="project-title">Digital Raid &amp; Seizure Monitoring System</h3>
+
+                <p class="project-description">
+                  A centralized operational monitoring platform modernizing field raids, contraband seizures, and complaint records. Replaces traditional paper processes with digital incident management, AI-assisted complaint categorization, and geospatial enforcement hotspot visualization for field personnel and administration.
+                </p>
+
+                <div class="project-features-list">
+                  <h4 class="features-heading">Key Technical Features:</h4>
+                  <ul class="features-bullets">
+                    <li><strong>Operational Field Tracking:</strong> End-to-end lifecycle management of raids, checkpoint monitoring, and verified seizure documentation.</li>
+                    <li><strong>AI-Assisted Processing:</strong> Automated incident data parsing and intake analysis paired with secure email OTP verification.</li>
+                    <li><strong>GIS Hotspot Intelligence:</strong> Interactive spatial mapping visualizing enforcement density and geographic complaint patterns.</li>
+                    <li><strong>Security &amp; Governance:</strong> Role-based access control (RBAC), offender information registry, and tamper-resistant audit trails.</li>
+                  </ul>
+                </div>
+
+                <div class="project-contribution-block">
+                  <span class="contrib-label">My Contribution:</span>
+                  <p class="contrib-text">
+                    Engineered full-stack features across the MERN stack, developed responsive operational interfaces for field personnel, integrated GIS mapping layers, and implemented database-backed seizure tracking workflows.
+                  </p>
+                </div>
+
+                <div class="project-tech-stack">
+                  <span class="tech-tag">MERN</span>
+                  <span class="tech-tag">React.js</span>
+                  <span class="tech-tag">Node.js</span>
+                  <span class="tech-tag">Express.js</span>
+                  <span class="tech-tag">MongoDB</span>
+                  <span class="tech-tag">GIS / Mapping</span>
+                  <span class="tech-tag">AI Data Processing</span>
+                  <span class="tech-tag">REST APIs</span>
+                </div>
+
+                <div class="project-actions-row">
+                  <a href="https://github.com/Thandupsherpa/Digital-Raid-System-PS1-" target="_blank" rel="noopener noreferrer" class="btn btn-project-github">
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                    </svg>
+                    <span>View on GitHub</span>
+                    <svg viewBox="0 0 20 20" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                      <path d="M5 15L15 5M15 5H7M15 5V13" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </a>
+                  <button type="button" class="btn btn-project-demo disabled" aria-disabled="true" title="Internal deployment restricted to authorized personnel">
+                    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                      <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                    </svg>
+                    <span>Enterprise System (Demo on Request)</span>
+                  </button>
+                </div>
               </div>
             </div>
           </article>
-          ======================================================================
-        -->
-        <div class="projects-grid">
-          <!-- Placeholder Card 01 -->
-          <div class="project-placeholder-card reveal-on-scroll">
-            <div class="placeholder-header">
-              <span class="placeholder-tag">01 — Coming Soon</span>
-              <div class="placeholder-indicator">
-                <span class="indicator-pulse"></span>
-                <span>In Curation</span>
+
+          <!-- PROJECT 02: Bike Rental Web App -->
+          <article class="project-card standard-project-card reveal-on-scroll">
+            <div class="project-preview-frame">
+              <div class="preview-console-header">
+                <div class="console-dots">
+                  <span class="c-dot red"></span>
+                  <span class="c-dot yellow"></span>
+                  <span class="c-dot green"></span>
+                </div>
+                <span class="console-title">bikerental.app // FLEET-BOOKING</span>
               </div>
-            </div>
-            <div class="placeholder-canvas" aria-hidden="true">
-              <div class="abstract-wireframe">
-                <div class="wire-header"></div>
-                <div class="wire-columns">
-                  <div class="wire-sidebar"></div>
-                  <div class="wire-content">
-                    <div class="wire-line"></div>
-                    <div class="wire-line short"></div>
-                    <div class="wire-blocks">
-                      <div class="wire-block"></div>
-                      <div class="wire-block"></div>
-                    </div>
+
+              <!-- Interactive Booking Engine Wireframe Graphic -->
+              <div class="preview-visual-canvas bike-canvas" aria-hidden="true">
+                <div class="booking-wireframe-card">
+                  <div class="wireframe-badge">AVAILABLE FLEET</div>
+                  <div class="wireframe-bike-vector">
+                    <svg viewBox="0 0 64 40" width="56" height="36" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                      <circle cx="14" cy="28" r="10"/>
+                      <circle cx="50" cy="28" r="10"/>
+                      <path d="M14 28l12-18h14l10 18"/>
+                      <path d="M26 10l8 18"/>
+                      <path d="M40 10l-6 18"/>
+                      <path d="M38 6h6"/>
+                      <circle cx="22" cy="6" r="3"/>
+                    </svg>
+                  </div>
+                  <div class="wireframe-dates-bar">
+                    <span>14 OCT ➔ 18 OCT</span>
+                    <span class="dates-tag">CONFIRMED</span>
                   </div>
                 </div>
               </div>
-            </div>
-            <div class="placeholder-info">
-              <h3 class="placeholder-title">Web Application Project</h3>
-              <p class="placeholder-text">Full-stack web application showcase currently undergoing documentation and
-                preparation.</p>
-              <div class="placeholder-tags">
-                <span class="badge-placeholder">Full Stack</span>
-                <span class="badge-placeholder">APIs</span>
-                <span class="badge-placeholder">UI/UX</span>
-              </div>
-            </div>
-          </div>
 
-          <!-- Placeholder Card 02 -->
-          <div class="project-placeholder-card reveal-on-scroll">
-            <div class="placeholder-header">
-              <span class="placeholder-tag">02 — Coming Soon</span>
-              <div class="placeholder-indicator">
-                <span class="indicator-pulse"></span>
-                <span>In Curation</span>
+              <div class="preview-cyber-corner tl"></div>
+              <div class="preview-cyber-corner tr"></div>
+              <div class="preview-cyber-corner bl"></div>
+              <div class="preview-cyber-corner br"></div>
+            </div>
+
+            <div class="project-details-body">
+              <div class="project-meta-strip">
+                <span class="project-category">Full Stack Web Application</span>
+                <span class="meta-dot">•</span>
+                <span class="project-role-tag">Full Stack Dev &amp; UI/UX Designer</span>
+              </div>
+
+              <h3 class="project-title">Bike Rental Web App</h3>
+
+              <p class="project-description">
+                A commercial bike rental platform simplifying vehicle discovery, real-time schedule checks, and multi-location reservation logistics. Features user accounts, customizable booking add-ons, and an administrative control panel for fleet management and statistics.
+              </p>
+
+              <div class="project-features-list">
+                <h4 class="features-heading">Key Technical Features:</h4>
+                <ul class="features-bullets">
+                  <li><strong>Multi-Step Reservation Engine:</strong> Rental dates selection, pickup/drop-off logistics, and customized fuel/gear add-ons.</li>
+                  <li><strong>Interactive Fleet Catalog:</strong> Dynamic vehicle cards displaying detailed specs, pricing tiers, and real-time availability.</li>
+                  <li><strong>Administrative Intelligence:</strong> Centralized dashboard for booking oversight, inventory management, and rental analytics.</li>
+                  <li><strong>State &amp; Auth Architecture:</strong> Robust JWT-based authentication paired with Context API for streamlined booking state.</li>
+                </ul>
+              </div>
+
+              <div class="project-contribution-block">
+                <span class="contrib-label">My Contribution:</span>
+                <p class="contrib-text">
+                  Designed the complete UI/UX, engineered responsive frontend components using React and Tailwind CSS, integrated backend REST APIs, and implemented admin data visualization for rental tracking.
+                </p>
+              </div>
+
+              <div class="project-tech-stack">
+                <span class="tech-tag">React.js</span>
+                <span class="tech-tag">Node.js</span>
+                <span class="tech-tag">Express.js</span>
+                <span class="tech-tag">MongoDB</span>
+                <span class="tech-tag">Tailwind CSS</span>
+                <span class="tech-tag">Framer Motion</span>
+                <span class="tech-tag">REST APIs</span>
+              </div>
+
+              <div class="project-actions-row">
+                <a href="https://github.com/Thandupsherpa/BikeRentalWebApp" target="_blank" rel="noopener noreferrer" class="btn btn-project-github">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                  </svg>
+                  <span>View on GitHub</span>
+                  <svg viewBox="0 0 20 20" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                    <path d="M5 15L15 5H7M15 5V13" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </a>
+                <button type="button" class="btn btn-project-demo disabled" aria-disabled="true" title="Deployment link can be configured here">
+                  <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <line x1="2" y1="12" x2="22" y2="12"></line>
+                    <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                  </svg>
+                  <span>Demo on Request</span>
+                </button>
               </div>
             </div>
-            <div class="placeholder-canvas" aria-hidden="true">
-              <div class="abstract-wireframe wireframe-api">
-                <div class="code-wire-row"><span class="code-dot red"></span><span class="code-dot yellow"></span><span
-                    class="code-dot green"></span></div>
-                <div class="code-wire-lines">
-                  <div class="code-wire-line w-40"></div>
-                  <div class="code-wire-line w-80"></div>
-                  <div class="code-wire-line w-60"></div>
-                  <div class="code-wire-line w-70"></div>
+          </article>
+
+          <!-- PROJECT 03: Monastery360 -->
+          <article class="project-card standard-project-card reveal-on-scroll">
+            <div class="project-preview-frame">
+              <div class="preview-console-header">
+                <div class="console-dots">
+                  <span class="c-dot red"></span>
+                  <span class="c-dot yellow"></span>
+                  <span class="c-dot green"></span>
+                </div>
+                <span class="console-title">monastery360.org // 3D-HERITAGE</span>
+              </div>
+
+              <!-- Interactive 360 & GIS Wireframe Graphic -->
+              <div class="preview-visual-canvas heritage-canvas" aria-hidden="true">
+                <div class="compass-circle-cluster">
+                  <div class="compass-ring-outer"></div>
+                  <div class="compass-ring-inner"></div>
+                  <div class="compass-marker"></div>
+                  <div class="compass-label">360° FOV</div>
+                </div>
+                <div class="heritage-geo-badge">
+                  <span class="pin-icon">📍</span>
+                  <span>SIKKIM CULTURAL ARCHIVES</span>
                 </div>
               </div>
-            </div>
-            <div class="placeholder-info">
-              <h3 class="placeholder-title">Backend Architecture &amp; API</h3>
-              <p class="placeholder-text">Server-side service demonstrating structured database schemas and endpoint
-                reliability.</p>
-              <div class="placeholder-tags">
-                <span class="badge-placeholder">Backend</span>
-                <span class="badge-placeholder">Database</span>
-                <span class="badge-placeholder">Architecture</span>
-              </div>
-            </div>
-          </div>
 
-          <!-- Placeholder Card 03 -->
-          <div class="project-placeholder-card reveal-on-scroll">
-            <div class="placeholder-header">
-              <span class="placeholder-tag">03 — Coming Soon</span>
-              <div class="placeholder-indicator">
-                <span class="indicator-pulse"></span>
-                <span>In Curation</span>
+              <div class="preview-cyber-corner tl"></div>
+              <div class="preview-cyber-corner tr"></div>
+              <div class="preview-cyber-corner bl"></div>
+              <div class="preview-cyber-corner br"></div>
+            </div>
+
+            <div class="project-details-body">
+              <div class="project-meta-strip">
+                <span class="project-category">Travel, Tourism &amp; Digital Heritage</span>
+                <span class="meta-dot">•</span>
+                <span class="project-role-tag">Full Stack Dev &amp; UI/UX Designer</span>
+              </div>
+
+              <h3 class="project-title">Monastery360</h3>
+
+              <p class="project-description">
+                A digital heritage preservation and immersive tourism platform celebrating Sikkim's sacred monasteries. Combines interactive geospatial discovery, 360° virtual spaces, curated historical archives, and AI-assisted cultural guidance for visitors and researchers.
+              </p>
+
+              <div class="project-features-list">
+                <h4 class="features-heading">Key Technical Features:</h4>
+                <ul class="features-bullets">
+                  <li><strong>Immersive 360° Experiences:</strong> Interactive panoramic navigation allowing virtual walkthroughs of historic monastery interiors.</li>
+                  <li><strong>Geospatial Discovery:</strong> Geo-tagged mapping with regional travel information, location pins, and homestay support.</li>
+                  <li><strong>Curated Cultural Archives:</strong> Rich historical repository equipped with multilingual audio guide concepts.</li>
+                  <li><strong>Intelligent Cultural Assistant:</strong> AI-powered contextual conversational guide and localized cultural calendar.</li>
+                </ul>
+              </div>
+
+              <div class="project-contribution-block">
+                <span class="contrib-label">My Contribution:</span>
+                <p class="contrib-text">
+                  Designed the comprehensive user experience and information architecture, built discovery modules with interactive maps, implemented Three.js 360° panoramic components, and structured the cultural archive database.
+                </p>
+              </div>
+
+              <div class="project-tech-stack">
+                <span class="tech-tag">React.js</span>
+                <span class="tech-tag">Three.js</span>
+                <span class="tech-tag">Tailwind CSS</span>
+                <span class="tech-tag">Node.js</span>
+                <span class="tech-tag">Express.js</span>
+                <span class="tech-tag">MongoDB</span>
+                <span class="tech-tag">Leaflet Maps</span>
+                <span class="tech-tag">AI / NLP</span>
+              </div>
+
+              <div class="project-actions-row">
+                <a href="https://github.com/Thandupsherpa/Monastery360" target="_blank" rel="noopener noreferrer" class="btn btn-project-github">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                  </svg>
+                  <span>View on GitHub</span>
+                  <svg viewBox="0 0 20 20" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                    <path d="M5 15L15 5H7M15 5V13" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </a>
+                <button type="button" class="btn btn-project-demo disabled" aria-disabled="true" title="Deployment link can be configured here">
+                  <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <line x1="2" y1="12" x2="22" y2="12"></line>
+                    <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                  </svg>
+                  <span>Demo on Request</span>
+                </button>
               </div>
             </div>
-            <div class="placeholder-canvas" aria-hidden="true">
-              <div class="abstract-wireframe wireframe-design">
-                <div class="design-circle-cluster">
-                  <div class="design-circle c1"></div>
-                  <div class="design-circle c2"></div>
-                  <div class="design-circle c3"></div>
-                </div>
-              </div>
-            </div>
-            <div class="placeholder-info">
-              <h3 class="placeholder-title">Modern Interface &amp; Interaction</h3>
-              <p class="placeholder-text">Focused frontend showcase demonstrating clean design system implementation and
-                micro-interactions.</p>
-              <div class="placeholder-tags">
-                <span class="badge-placeholder">Design System</span>
-                <span class="badge-placeholder">Frontend</span>
-                <span class="badge-placeholder">Motion</span>
-              </div>
-            </div>
-          </div>
+          </article>
         </div>
       </div>
     </section>
@@ -1193,7 +1514,7 @@
               </a>
 
               <!-- GitHub Item -->
-              <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer"
+              <a href="https://github.com/Thandupsherpa" target="_blank" rel="noopener noreferrer"
                 class="contact-method-card" title="Open GitHub Profile in new tab">
                 <div class="method-icon-wrap">
                   <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"
@@ -1205,7 +1526,7 @@
                 </div>
                 <div class="method-content">
                   <span class="method-label">GitHub</span>
-                  <span class="method-value">github.com/yourusername</span>
+                  <span class="method-value">github.com/Thandupsherpa</span>
                 </div>
                 <div class="method-arrow" aria-hidden="true">↗</div>
               </a>
@@ -1232,11 +1553,17 @@
             <div class="form-container">
               <div class="form-card-header">
                 <h3 class="form-title">Send a Message</h3>
-                <span class="demo-badge">Static Form UI</span>
+                <span class="live-badge"><span class="live-dot"></span>Direct Message</span>
               </div>
 
               <!-- Message Form -->
-              <form id="portfolio-contact-form" class="portfolio-form" novalidate>
+              <form id="portfolio-contact-form" class="portfolio-form" action="https://formsubmit.co/thandupsherpa153@gmail.com" method="POST" novalidate>
+                <!-- FormSubmit Anti-Spam & Configuration fields -->
+                <input type="text" name="_honey" style="display:none">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_template" value="table">
+                <input type="hidden" name="_subject" id="form-subject" value="New Portfolio Message">
+
                 <div class="form-group">
                   <label for="form-name" class="form-label">Your Name <span class="required-star">*</span></label>
                   <input type="text" id="form-name" name="name" class="form-input" placeholder="e.g. Alex Chen" required
@@ -1259,27 +1586,24 @@
                 </div>
 
                 <button type="submit" id="form-submit-btn" class="btn btn-primary btn-block">
-                  <span>Send Message</span>
-                  <svg viewBox="0 0 20 20" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                  <span class="btn-text">Send Message</span>
+                  <svg class="btn-icon" viewBox="0 0 20 20" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
                     <path d="M4 10H16M16 10L11 5M16 10L11 15" stroke-linecap="round" stroke-linejoin="round" />
                   </svg>
                 </button>
               </form>
 
-              <!-- Static Website Notice Dialog / Alert -->
+              <!-- Dynamic Status Alert Banner (Success / Error / Fallback) -->
               <div id="form-status-message" class="form-alert-banner" role="alert" style="display: none;">
-                <div class="alert-icon-wrap">
-                  <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
-                    <circle cx="12" cy="12" r="10"></circle>
-                    <line x1="12" y1="8" x2="12" y2="12"></line>
-                    <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                <div class="alert-icon-wrap" id="alert-icon-wrap">
+                  <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20 6 9 17 4 12"></polyline>
                   </svg>
                 </div>
                 <div class="alert-content">
-                  <strong class="alert-title">Notice:</strong>
-                  <p class="alert-text">This form is currently a demo on this static portfolio. Please contact me
-                    directly using the direct email or WhatsApp links provided.</p>
-                  <a href="mailto:thandupsherpa153@gmail.com" class="alert-link-btn">Launch Email App →</a>
+                  <strong class="alert-title" id="alert-title">Message Sent!</strong>
+                  <p class="alert-text" id="alert-text">Thank you! Your message has been sent directly to my inbox.</p>
+                  <a href="mailto:thandupsherpa153@gmail.com" id="alert-fallback-btn" class="alert-link-btn" style="display: none;">Launch Email App →</a>
                 </div>
               </div>
             </div>
@@ -1300,7 +1624,7 @@
       </div>
 
       <div class="footer-social-links">
-        <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer" class="footer-social-link"
+        <a href="https://github.com/Thandupsherpa" target="_blank" rel="noopener noreferrer" class="footer-social-link"
           aria-label="GitHub Profile">
           <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"
             stroke-linecap="round" stroke-linejoin="round">
@@ -1331,7 +1655,7 @@
 
       <div class="footer-bottom-row">
         <p class="footer-copyright">
-          &copy; 2026 Thandup Sherpa. Built with HTML, CSS &amp; JavaScript.
+          &copy; 2026 Thandup Sherpa. All rights reserved.
         </p>
         <a href="#hero" class="back-to-top-btn" aria-label="Scroll back to top">
           <span>Back to top</span>
@@ -1343,6 +1667,14 @@
       </div>
     </div>
   </footer>
+
+  <!-- Floating Smooth Back-to-Top Button -->
+  <a href="#hero" id="floating-back-to-top" class="floating-back-to-top" aria-label="Scroll back to top" title="Back to top">
+    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M18 15l-6-6-6 6"></path>
+    </svg>
+    <span class="back-to-top-glow" aria-hidden="true"></span>
+  </a>
 
   <!-- Vanilla JavaScript -->
   <script src="./script.js"></script>
